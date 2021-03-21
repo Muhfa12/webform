@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+
+    <title>FORM PENDAFTARAN ANGGOTA PERPUSTAKAAN</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-expand">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="logo" width="150" height="75" class="d-inline-block align-top" />
+          <b>FORM PENDAFTARAN</b>
+          ANGGOTA PERPUSTAKAAN
+        </a>
+      </div>
+    </nav>
+    <br />
+    <form name="form-daftar" action="register.php" method="post">
+      <fieldset>
+        <table style="background-color: azure" align="center" border="2" cellpadding="10" cellspacing="5" bordercolor="white">
+          <tbody>
+            <tr>
+              <td><b>Nama : </b></td>
+              <td><input placeholder="Masukkan Nama Lengkap" size="50" name="nama" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>NIM : </b></td>
+              <td><input placeholder="Masukkan NIM" size="50" name="nim" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Tempat/Tanggal Lahir : </b></td>
+              <td><input placeholder="Masukkan Tempat/Tanggal Lahir" size="50" name="ttl" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Prodi : </b></td>
+              <td><input placeholder="Masukkan Program Studi" size="50" name="prodi" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Fakultas : </b></td>
+              <td><input placeholder="Masukkan Nama Fakultas" size="50" name="fakultas" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>No HP : </b></td>
+              <td><input placeholder="Masukkan No.HP Anda" size="50" name="no.hp" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Email : </b></td>
+              <td><input placeholder="Masukkan Email" size="50" name="email" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Jenis Kelamin : </b></td>
+              <td>
+                <label><input type="radio" name="tipe" value="male" name="jenis kelamin" />Laki-Laki</label>
+                <label><input type="radio" name="tipe" value="female" name="jenis kelamin" />Perempuan</label>
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Tanggal Bergabung : </b></td>
+              <td><input placeholder="Masukkan Tanggal" size="50" name="tgl gabung" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td><b>Alamat Lengkap : </b></td>
+              <td><textarea rows="2" cols="52" wrap="physical" name="alamat"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <center><button type="submit" class="btn-danger">Submit</button></center>
+      </fieldset>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <script>
+      const scriptURL = "<https://script.google.com/macros/s/AKfycby5M9vgHVvTpzrmPxy5bKUDq79gZGK225du6rLtjVdC4yR0l9YJ-5h4wlBFsr-C-_uO/exec>";
+      const form = document.forms["form-daftar"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+    <br />
+    <br />
+    <br />
+    <footer style="background-color: black" align="center">
+      <p class="text-white">Copyright @ 2021</p>
+    </footer>
+  </body>
+</html>
